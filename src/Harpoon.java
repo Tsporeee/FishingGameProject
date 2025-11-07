@@ -25,5 +25,5 @@ public class Harpoon extends FishingTool
     {
         super("Harpoon");
     }
-
+    
 }

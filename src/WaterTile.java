@@ -10,29 +10,61 @@
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  * 
  *  
- * Version/date: 10/31/2025
+ * Version/date: 11/7/2025
  * 
  * Responsibilities of class:
- * 
+ * WaterTile abstract class for inheritance
  * 
  */
 
-// I think having this be the same situation as the fish would be best
-// Just with brackish, freshwater, and saltwater tiles
 public abstract class WaterTile 
 {
 	
+	// A WaterTile has-an amount of fish
+	public static final int FISH_AMOUNT = 3;
+	
+	// All these instance variables require a getter (note to self) 
+	// Instance variables for location
+	private int x;
+	private int y;
+	
 	// A WaterTile has-many Fish
-	private Fish[] fish;
+	private Fish[] fish = new Fish[FISH_AMOUNT];
+	
+	// // A WaterTile has-a FishingGame
+	private FishingGame game; 
 	
 	// Constructor
-	public WaterTile()
+	public WaterTile(int x, int y, FishingGame game)
+	{
+		this.x = x;
+		this.y = y;
+		this.game = game;
+	}
+	
+	// Fish here depends on type of tile
+	public void populateTile()
 	{
 	}
 	
-	// Getter
+	// Getters
 	public Fish[] getFish()
 	{
 		return fish;
+	}
+	
+	public int getX()
+	{
+		return x;
+	}
+	
+	public int getY()
+	{
+		return y;
+	}
+	
+	public FishingGame getGame()	
+	{
+		return game;
 	}
 }

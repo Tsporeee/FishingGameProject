@@ -10,18 +10,37 @@
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  * 
  *  
- * Version/date: 10/31/2025
+ * Version/date: 11/7/2025
  * 
  * Responsibilities of class:
- * 
+ * Creates a FreshwaterTile with Fish
  * 
  */
 
 // A FreshwaterTile is-a WaterTile
 public class FreshwaterTile extends WaterTile
-{
+{ 
 	
-	// A FreshwaterTile has-many Fish
-	private Fish[] fish;
+	// Constructor
+	public FreshwaterTile(int x, int y, FishingGame game) 
+	{
+		super(x, y, game);
+		populateTile();
+	}
 	
+	// Populate the tile with Freshwater fish
+	@Override
+	public void populateTile()
+	{
+		
+		// Create instance variables for the subclass
+		FishingGame game = getGame();
+		Fish[] fish = getFish();
+		
+		// Add random fish to the tile
+		for (int i = 0; i < FISH_AMOUNT; i++)
+		{
+			fish[i] = game.FreshwaterRandomFishGenerate();
+		}
+	}
 }

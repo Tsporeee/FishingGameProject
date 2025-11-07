@@ -10,7 +10,7 @@
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  * 
  *  
- * Version/date: 10/31/2025
+ * Version/date: 11/7/2025
  * 
  * Responsibilities of class:
  * 
@@ -21,7 +21,27 @@
 public class SaltwaterTile extends WaterTile
 {
 	
-	// A SaltwaterTile has-many Fish
-	private Fish[] fish;
+	// Constructor
+	public SaltwaterTile(int x, int y, FishingGame game) 
+	{
+		super(x, y, game);
+		populateTile();
+	}
+	
+	// Populate the tile with Saltwater fish
+	@Override
+	public void populateTile()
+	{
+		
+		// Create instance variables for the subclass
+		FishingGame game = getGame();
+		Fish[] fish = getFish();
+		
+		// Add random fish to the tile
+		for (int i = 0; i < FISH_AMOUNT; i++)
+		{
+			fish[i] = game.SaltwaterRandomFishGenerate();
+		}
+	}
 	
 }
