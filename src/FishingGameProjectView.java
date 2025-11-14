@@ -1,4 +1,10 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 /**
  * Lead Author(s): 
@@ -11,6 +17,9 @@ import javax.swing.JFrame;
  * Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented Problem Solving.
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  * 
+ * “How to Make a 2D Game in Java” Youtube, uploaded by RyiSnow, 2023, 
+ * https://www.youtube.com/playlist?list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
+ *  
  *  
  * Version/date: 11/7/2025
  * 
@@ -19,48 +28,44 @@ import javax.swing.JFrame;
  * 
  */
 
-// A FishingGameProjectView is-a JFrame
-// Idk why it yellow lines here
-public class FishingGameProjectView extends JFrame
+public class FishingGameProjectView 
 {
-	
-	// A fishingGameView has-a tile type amount
-	public static final int TILE_TYPE_COUNT = 3;
-	
-	// A FishingGameProjectView has-a FishingGame
-	private FishingGame game;
-	
-	// Repeat with the other tiles maybe.... maybe this can be done in FishingGame idk yet
-	// A FishingGameProjectView has-many FreshwaterTiles
-	private FreshwaterTile[] freshWaterTiles = new FreshwaterTile[TILE_TYPE_COUNT];
 	
 	// Creates GUI (TO DO)
 	public static void main(String[] args)
 	{
-		new FishingGameProjectView().start();
+		JFrame gameScreen = new JFrame(); 
+		gameScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gameScreen.setTitle("Quick Casts!"); // Working title
+		gameScreen.setLayout(new BorderLayout());
+		
+		FishingGamePanel gamePanel = new FishingGamePanel();
+		
+		JTextArea boatInventory = new JTextArea(20, 45);
+		boatInventory.setBackground(Color.WHITE);
+		boatInventory.setFocusable(false); // Make it so the game only focuses on the game panel
+		
+		JPanel southGUI = new JPanel(); 
+		southGUI.setLayout(new BorderLayout());
+		
+		JTextArea gameUpdates = new JTextArea(20, 75);
+		gameUpdates.setFocusable(false);
+		JButton fishingButton = new JButton(); // Should we make this another class? 
+		fishingButton.setFocusable(false);
+		
+		southGUI.add(gameUpdates, BorderLayout.EAST);
+		southGUI.add(fishingButton, BorderLayout.CENTER);
+		
+		gameScreen.add(boatInventory, BorderLayout.WEST);
+		gameScreen.add(southGUI, BorderLayout.SOUTH);
+		gameScreen.add(gamePanel, BorderLayout.CENTER);
+		gameScreen.pack();
+		
+		// Puts screen in the middle
+		gameScreen.setLocationRelativeTo(null);
+		gameScreen.setVisible(true);
+		
+		gamePanel.requestFocusInWindow();
 	}
-	
-	// Start the game
-	// DEBUG PRINTING HERE... LEAVING IT JUST IN CASE WE NEED IT
-	public void start()
-	{
-		game = new FishingGame();
-		WaterTile testTile1 = new FreshwaterTile(1, 1, game);
-	    for (Fish f : testTile1.getFish()) 
-	    {
-	        System.out.println(f);
-	    }
-	    
-		WaterTile testTile2 = new SaltwaterTile(1, 1, game);
-	    for (Fish f : testTile2.getFish()) 
-	    {
-	        System.out.println(f);
-	    }
-	    
-	    WaterTile testTile3 = new BrackishTile(1, 1, game);
-	    for (Fish f : testTile3.getFish()) 
-	    {
-	        System.out.println(f);
-	    }
-	}
+
 }

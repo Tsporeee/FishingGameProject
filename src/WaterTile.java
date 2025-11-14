@@ -32,14 +32,14 @@ public abstract class WaterTile
 	private Fish[] fish = new Fish[FISH_AMOUNT];
 	
 	// // A WaterTile has-a FishingGame
-	private FishingGame game; 
+	private FishGenerator generator; 
 	
 	// Constructor
-	public WaterTile(int x, int y, FishingGame game)
+	public WaterTile(int x, int y, FishGenerator generator)
 	{
 		this.x = x;
 		this.y = y;
-		this.game = game;
+		this.generator = generator;
 	}
 	
 	// Fish here depends on type of tile
@@ -63,8 +63,8 @@ public abstract class WaterTile
 		return y;
 	}
 	
-	public FishingGame getGame()	
+	public FishGenerator getGenerator()	
 	{
-		return game;
+		return generator;
 	}
 }

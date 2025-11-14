@@ -22,9 +22,9 @@ public class SaltwaterTile extends WaterTile
 {
 	
 	// Constructor
-	public SaltwaterTile(int x, int y, FishingGame game) 
+	public SaltwaterTile(int x, int y, FishGenerator generator) 
 	{
-		super(x, y, game);
+		super(x, y, generator);
 		populateTile();
 	}
 	
@@ -34,7 +34,7 @@ public class SaltwaterTile extends WaterTile
 	{
 		
 		// Create instance variables for the subclass
-		FishingGame game = getGame();
+		FishGenerator game = getGenerator();
 		Fish[] fish = getFish();
 		
 		// Add random fish to the tile

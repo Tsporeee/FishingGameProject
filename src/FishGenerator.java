@@ -15,22 +15,22 @@ import java.util.Random;
  * Version/date: 11/7/2025
  * 
  * Responsibilities of class:
- * Provides functionality to the fishing game
+ * Generates fish
  * 
  */
 
 // Could use more fish, that would be good maybe after we get this thing fully working
-public class FishingGame 
+public class FishGenerator
 {
 
 	// Constructor 
-	public FishingGame()
+	public FishGenerator()
 	{
 		
 	}
 	
 	// Generate a random fish for a FreshwaterTile
-	public Fish FreshwaterRandomFishGenerate()
+	public Fish FreshwaterRandomFishGenerate() 
 	{
 		
 		// Create random numbers for the switch

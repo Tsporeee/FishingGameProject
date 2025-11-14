@@ -22,9 +22,9 @@ public class BrackishTile extends WaterTile
 {
 	
 	// Constructor
-	public BrackishTile(int x, int y, FishingGame game) 
+	public BrackishTile(int x, int y, FishGenerator generator) 
 	{
-		super(x, y, game);
+		super(x, y, generator);
 		populateTile();
 	}
 
@@ -34,13 +34,13 @@ public class BrackishTile extends WaterTile
 	{
 		
 		// Create instance variables for the subclass
-		FishingGame game = getGame();
+		FishGenerator generator = getGenerator();
 		Fish[] fish = getFish();
 		
 		// Add random fish to the tile
 		for (int i = 0; i < FISH_AMOUNT; i++)
 		{
-			fish[i] = game.BrackishRandomFishGenerate();
+			fish[i] = generator.BrackishRandomFishGenerate();
 		}
 	}
 }
