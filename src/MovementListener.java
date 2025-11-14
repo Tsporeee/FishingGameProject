@@ -16,7 +16,7 @@ import java.awt.event.KeyListener;
  * https://www.youtube.com/playlist?list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
  * 
  *  
- * Version/date: 11/7/2025
+ * Version/date: 11/14/2025
  * 
  * Responsibilities of class:
  * Creates functionality in the arrow keys
@@ -49,6 +49,8 @@ public class MovementListener implements KeyListener
 		
 		// Gets the keycode of the key pressed 
 		int code = e.getKeyCode();
+		
+		// If a key is pressed, change the x or y value of the boat based on tile size
 		if (code == KeyEvent.VK_UP)
 		{
 			fishingGamePanel.setPlayerY(fishingGamePanel.getPlayerY() - FishingGamePanel.SCALED_TILE_SIZE); 
@@ -69,6 +71,7 @@ public class MovementListener implements KeyListener
 			fishingGamePanel.setPlayerX(fishingGamePanel.getPlayerX() + FishingGamePanel.SCALED_TILE_SIZE);
 		}
 		
+		// Update GUI
 		fishingGamePanel.repaint();
 		
 	}

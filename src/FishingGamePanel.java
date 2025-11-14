@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  * https://www.youtube.com/playlist?list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
  * 
  *  
- * Version/date: 11/7/2025
+ * Version/date: 11/14/2025
  * 
  * Responsibilities of class:
  * Creates the game screen
@@ -30,16 +30,16 @@ import javax.swing.JPanel;
 public class FishingGamePanel extends JPanel
 {
 	// Settings 
-	public final static int TILE_SIZE = 64;
-	public final static int SCALE = 3;
+	public static final int TILE_SIZE = 64;
+	public static final int SCALE = 3;
 	
-	public final static int SCALED_TILE_SIZE = TILE_SIZE * SCALE;
+	public static final int SCALED_TILE_SIZE = TILE_SIZE * SCALE;
 	
-	public final static int SCREEN_COL = 5;
-	public final static int SCREEN_ROW = 4;
+	public static final int SCREEN_COL = 5;
+	public static final int SCREEN_ROW = 4;
 	
-	public final static int SCREEN_HEIGHT = SCALED_TILE_SIZE * SCREEN_ROW;
-	public final static int SCREEN_WIDTH = SCALED_TILE_SIZE * SCREEN_COL;
+	public static final int SCREEN_HEIGHT = SCALED_TILE_SIZE * SCREEN_ROW;
+	public static final int SCREEN_WIDTH = SCALED_TILE_SIZE * SCREEN_COL;
 	
 	// A FishingGamePanel has-a MovementListener
 	private MovementListener movementListener = new MovementListener(this);
