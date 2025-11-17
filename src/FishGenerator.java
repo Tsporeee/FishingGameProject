@@ -30,7 +30,7 @@ public class FishGenerator
 	}
 	
 	// Generate a random fish for a FreshwaterTile
-	public Fish FreshwaterRandomFishGenerate() 
+	public Fish FreshwaterRandomFishGenerate() throws NullFishException
 	{
 		
 		// Create random numbers for the switch
@@ -47,12 +47,12 @@ public class FishGenerator
 			case 2:
 				return new Goldfish();
 			default:
-				return null;
+				throw new NullFishException();
 		}
 	}
 	
 	// Generate a random fish for a SaltwaterTile
-	public Fish SaltwaterRandomFishGenerate()
+	public Fish SaltwaterRandomFishGenerate() throws NullFishException
 	{
 		
 		// Create random numbers for the switch
@@ -67,13 +67,13 @@ public class FishGenerator
 			case 1:
 				return new Squid();
 			default:
-				return null;
+				throw new NullFishException();
 		}
 	}
 		
 	// Generate a random fish for a BrakishTile
 	// add more brackish fish at some point!!!!
-	public Fish BrackishRandomFishGenerate()
+	public Fish BrackishRandomFishGenerate() throws NullFishException
 	{
 		
 		// Create random numbers for the switch
@@ -86,7 +86,7 @@ public class FishGenerator
 			case 0: 
 				return new BullShark();
 			default:
-				return null;
+				throw new NullFishException();
 		}
 	}
 }

@@ -10,10 +10,10 @@
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  * 
  *  
- * Version/date: 11/7/2025
+ * Version/date: 11/14/2025
  * 
  * Responsibilities of class:
- * 
+ * Creates a SaltwaterTile with Fish
  * 
  */
 
@@ -38,9 +38,10 @@ public class SaltwaterTile extends WaterTile
 		Fish[] fish = getFish();
 		
 		// Add random fish to the tile
+		// Catch if there is no fish
 		for (int i = 0; i < FISH_AMOUNT; i++)
 		{
-			fish[i] = game.SaltwaterRandomFishGenerate();
+				fish[i] = game.SaltwaterRandomFishGenerate();
 		}
 	}
 	
