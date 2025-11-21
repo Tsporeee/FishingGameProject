@@ -41,8 +41,15 @@ public class SaltwaterTile extends WaterTile
 		// Catch if there is no fish
 		for (int i = 0; i < FISH_AMOUNT; i++)
 		{
+			try 
+			{
 				fish[i] = game.SaltwaterRandomFishGenerate();
+			} 
+			catch (NullFishException e) 
+			{
+				 System.out.println(e.getMessage());
+				 fish[i] = new Squid();
+			}
 		}
 	}
-	
 }

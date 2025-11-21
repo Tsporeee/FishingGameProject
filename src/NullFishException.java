@@ -18,7 +18,7 @@
  */
 
 // A NullFishException is-an Exception
-public class NullFishException extends RuntimeException
+public class NullFishException extends Exception
 {
 
 	// Constructor
