@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  * https://www.youtube.com/playlist?list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
  * 
  *  
- * Version/date: 11/14/2025
+ * Version/date: 11/20/2025
  * 
  * Responsibilities of class:
  * Creates the game screen
@@ -29,6 +29,7 @@ import javax.swing.JPanel;
 // A FishingGamePanel is-a JPanel
 public class FishingGamePanel extends JPanel
 {
+	
 	// Settings 
 	public static final int TILE_SIZE = 64;
 	public static final int SCALE = 3;
@@ -44,6 +45,12 @@ public class FishingGamePanel extends JPanel
 	// A FishingGamePanel has-a MovementListener
 	private MovementListener movementListener = new MovementListener(this);
 	
+	// A FishingGamePanel has-many WaterTiles
+	private WaterTile[][] waterTiles = new WaterTile[SCREEN_ROW][SCREEN_COL];
+	
+	// A FishingGamePanel has-a FishGenerator
+	private FishGenerator generator;
+	
 	// Set player default position
 	private int playerX = 0;
 	private int playerY = 0;
@@ -55,17 +62,63 @@ public class FishingGamePanel extends JPanel
 		this.setBackground(Color.LIGHT_GRAY);	
 		this.addKeyListener(movementListener);
 		this.setFocusable(true);
+		
+		generator = new FishGenerator();
+		createWaterTiles();
 	}
 	
-	// Creates the boat/player
+	// Create the three different WaterTiles
+	public void createWaterTiles()
+	{
+		for (int row = 0; row < SCREEN_ROW; row++)
+		{
+			for (int col = 0; col < SCREEN_COL; col++)
+			{
+				// Creates salt water tiles in columns 1-2
+				// Flip col and row to match x and y
+				if (col <= 1)
+				{
+					waterTiles[row][col] = new SaltwaterTile(row, col, generator);
+				}
+				
+				// Creates brackish water tiles in column 2
+				if (col == 2)
+				{
+					waterTiles[row][col] = new BrackishTile(row, col, generator);
+				}
+				
+				// Creates fresh water tiles in columns 3-4
+				if (col > 2)
+				{
+					waterTiles[row][col] = new FreshwaterTile(row, col, generator);
+				}
+			}
+		}
+	}
+	
+	// Creates the visuals for the game
 	public void paintComponent (Graphics g)
 	{
+		
+		// Set up graphics 
 		super.paintComponent(g);
-		Graphics2D boat = (Graphics2D)g;
-		boat.setColor(Color.BLACK);
-		boat.fillRect(getPlayerX(), getPlayerY(), SCALED_TILE_SIZE, SCALED_TILE_SIZE);
+		Graphics2D g2D = (Graphics2D)g;
+		
+		// Draw the tiles
+		for (int row = 0; row < SCREEN_ROW; row++)
+		{
+			for (int col = 0; col < SCREEN_COL; col++)
+			{
+				WaterTile waterTile = waterTiles[row][col];
+	            g2D.setColor(waterTile.getColor());
+	            g2D.fillRect(waterTile.getX(), waterTile.getY(), SCALED_TILE_SIZE, SCALED_TILE_SIZE);
+			}
+		}
+		
+		// Draw the boat
+		g2D.setColor(Color.BLACK);
+		g2D.fillRect(getPlayerX(), getPlayerY(), SCALED_TILE_SIZE, SCALED_TILE_SIZE);
 	}
-	
 	
 	// Getters and setters
 	public int getPlayerY() 
@@ -86,5 +139,10 @@ public class FishingGamePanel extends JPanel
 	public void setPlayerX(int playerX) 
 	{
 		this.playerX = playerX;
+	}
+	
+	public WaterTile[][] getWaterTiles()
+	{
+		return waterTiles;
 	}
 }

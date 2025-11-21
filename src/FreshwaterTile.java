@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 /**
  * Lead Author(s): 
  * @author Tian Schmidt
@@ -10,7 +12,7 @@
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  * 
  *  
- * Version/date: 11/14/2025
+ * Version/date: 11/20/2025
  * 
  * Responsibilities of class:
  * Creates a FreshwaterTile with Fish
@@ -22,10 +24,11 @@ public class FreshwaterTile extends WaterTile
 { 
 	
 	// Constructor
-	public FreshwaterTile(int x, int y, FishGenerator generator)
+	public FreshwaterTile(int row, int col, FishGenerator generator)
 	{
-		super(x, y, generator);
+		super(row, col, generator);
 		populateTile();
+		setColor (Color.CYAN);
 	}
 	
 	// Populate the tile with Freshwater fish
@@ -40,7 +43,15 @@ public class FreshwaterTile extends WaterTile
 		// Add random fish to the tile
 		for (int i = 0; i < FISH_AMOUNT; i++)
 		{
-			fish[i] = game.FreshwaterRandomFishGenerate();
+			try
+			{
+				fish[i] = game.FreshwaterRandomFishGenerate();
+			}
+			catch (NullFishException e)
+			{
+				System.out.println(e.getMessage());
+				 fish[i] = new Carp();
+			}
 		}
 	}
 }

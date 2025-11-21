@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 /**
  * Lead Author(s): 
  * @author Tian Schmidt
@@ -10,7 +12,7 @@
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  * 
  *  
- * Version/date: 11/14/2025
+ * Version/date: 11/20/2025
  * 
  * Responsibilities of class:
  * Creates a BrackishTile with Fish
@@ -22,10 +24,11 @@ public class BrackishTile extends WaterTile
 {
 	
 	// Constructor
-	public BrackishTile(int x, int y, FishGenerator generator) 
+	public BrackishTile(int row, int col, FishGenerator generator) 
 	{
-		super(x, y, generator);
+		super(row, col, generator);
 		populateTile();
+		setColor (Color.GREEN);
 	}
 
 	// Populate the tile with Brackish fish
@@ -40,7 +43,15 @@ public class BrackishTile extends WaterTile
 		// Add random fish to the tile
 		for (int i = 0; i < FISH_AMOUNT; i++)
 		{
+			try
+			{
 			fish[i] = generator.BrackishRandomFishGenerate();
+			}
+			catch ( NullFishException e)
+			{
+			System.out.println(e.getMessage());
+			fish[i] = new BullShark();
+			}
 		}
 	}
 }

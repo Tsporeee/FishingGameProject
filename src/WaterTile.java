@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 /**
  * Lead Author(s): 
  * @author Tian Schmidt
@@ -10,7 +12,7 @@
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  * 
  *  
- * Version/date: 11/14/2025
+ * Version/date: 11/20/2025
  * 
  * Responsibilities of class:
  * WaterTile abstract class for inheritance
@@ -25,20 +27,23 @@ public abstract class WaterTile
 	
 	// All these instance variables require a getter (note to self) 
 	// Instance variables for location
-	private int x;
-	private int y;
+	private int row;
+	private int col;
 	
 	// A WaterTile has-many Fish
 	private Fish[] fish = new Fish[FISH_AMOUNT];
 	
-	// // A WaterTile has-a FishingGame
+	// A WaterTile has-a FishGenerator
 	private FishGenerator generator; 
 	
+	// A WaterTile has-a Color
+	private Color color;
+	
 	// Constructor
-	public WaterTile(int x, int y, FishGenerator generator)
+	public WaterTile(int row, int col, FishGenerator generator)
 	{
-		this.x = x;
-		this.y = y;
+		this.row = row;
+		this.col = col;
 		this.generator = generator;
 	}
 	
@@ -47,22 +52,34 @@ public abstract class WaterTile
 	{
 	}
 	
-	// Getters
+	// Getters and setters
 	public Fish[] getFish()
 	{
 		return fish;
 	}
 	
+	// The X value will be the column * the tile size 
 	public int getX()
 	{
-		return x;
+		return col * FishingGamePanel.SCALED_TILE_SIZE;
 	}
 	
+	// TheYX value will be the row * the tile size 
 	public int getY()
 	{
-		return y;
+		return row * FishingGamePanel.SCALED_TILE_SIZE;
 	}
 	
+	public Color getColor() 
+	{
+		return color;
+	}
+	
+	public void setColor(Color newColor)
+	{
+		color = newColor;
+	}
+
 	public FishGenerator getGenerator()	
 	{
 		return generator;

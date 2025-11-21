@@ -21,7 +21,7 @@ import javax.swing.JTextArea;
  * https://www.youtube.com/playlist?list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
  *  
  *  
- * Version/date: 11/14/2025
+ * Version/date: 11/20/2025
  * 
  * Responsibilities of class:
  * Creates the game visuals
@@ -76,5 +76,4 @@ public class FishingGameProjectView
 		// Make it so the gamepanel is in focus
 		gamePanel.requestFocusInWindow();
 	}
-
 }

@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 /**
  * Lead Author(s): 
  * @author Tian Schmidt
@@ -10,7 +12,7 @@
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  * 
  *  
- * Version/date: 11/14/2025
+ * Version/date: 11/20/2025
  * 
  * Responsibilities of class:
  * Creates a SaltwaterTile with Fish
@@ -22,10 +24,11 @@ public class SaltwaterTile extends WaterTile
 {
 	
 	// Constructor
-	public SaltwaterTile(int x, int y, FishGenerator generator) 
+	public SaltwaterTile(int row, int col, FishGenerator generator) 
 	{
-		super(x, y, generator);
+		super(row, col, generator);
 		populateTile();
+		setColor (Color.BLUE);
 	}
 	
 	// Populate the tile with Saltwater fish
