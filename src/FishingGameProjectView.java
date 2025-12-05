@@ -56,6 +56,7 @@ public class FishingGameProjectView
 		JTextArea gameUpdates = new JTextArea(20, 75);
 		gameUpdates.setFocusable(false);
 		JButton fishingButton = new JButton(); // Should we make this another class? 
+		fishingButton.setText("FISH");
 		fishingButton.addActionListener(new FishButtonListener(gamePanel, boatInventory, gameUpdates));
 		fishingButton.setFocusable(false);
 		
