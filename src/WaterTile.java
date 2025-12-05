@@ -52,6 +52,22 @@ public abstract class WaterTile
 	{
 	}
 	
+	// Get the first fish in the array, or null if none are left
+	public Fish catchFish()
+	{
+		for (int i = 0; i < fish.length; i++)
+		{
+			if (fish[i] != null) 
+			{
+				Fish caughtFish = fish[i];
+				fish[i] = null;
+				return caughtFish;
+			}
+		}
+		return null; 
+	}
+	
+	
 	// Getters and setters
 	public Fish[] getFish()
 	{
@@ -64,7 +80,7 @@ public abstract class WaterTile
 		return col * FishingGamePanel.SCALED_TILE_SIZE;
 	}
 	
-	// TheYX value will be the row * the tile size 
+	// TheY value will be the row * the tile size 
 	public int getY()
 	{
 		return row * FishingGamePanel.SCALED_TILE_SIZE;

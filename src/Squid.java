@@ -20,10 +20,7 @@
 // A Squid is-a Fish
 public class Squid extends Fish
 {
-	
-	// A Squid has-a point value
-	public int points = 6;
-	
+
 	// Ability
 	public void ink()
 	{
@@ -32,7 +29,7 @@ public class Squid extends Fish
 	
 	public Squid()
 	{
-	
+		super(6);
 	}
 	
 	@Override

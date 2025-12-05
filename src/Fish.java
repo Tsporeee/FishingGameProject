@@ -24,8 +24,9 @@ public abstract class Fish
 	private int points;
 	
 	// Constructor
-	public Fish()
+	public Fish(int points)
 	{
+		this.points = points;
 	}
 	
 	// Getter

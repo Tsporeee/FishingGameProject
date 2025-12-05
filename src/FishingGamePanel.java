@@ -42,6 +42,8 @@ public class FishingGamePanel extends JPanel
 	public static final int SCREEN_HEIGHT = SCALED_TILE_SIZE * SCREEN_ROW;
 	public static final int SCREEN_WIDTH = SCALED_TILE_SIZE * SCREEN_COL;
 	
+	public static final int WINNING_SCORE = 35;
+	
 	// A FishingGamePanel has-a MovementListener
 	private MovementListener movementListener = new MovementListener(this);
 	
@@ -50,6 +52,8 @@ public class FishingGamePanel extends JPanel
 	
 	// A FishingGamePanel has-a FishGenerator
 	private FishGenerator generator;
+	
+	private int score;
 	
 	// Set player default position
 	private int playerX = 0;
@@ -75,7 +79,6 @@ public class FishingGamePanel extends JPanel
 			for (int col = 0; col < SCREEN_COL; col++)
 			{
 				// Creates salt water tiles in columns 1-2
-				// Flip col and row to match x and y
 				if (col <= 1)
 				{
 					waterTiles[row][col] = new SaltwaterTile(row, col, generator);
@@ -144,5 +147,15 @@ public class FishingGamePanel extends JPanel
 	public WaterTile[][] getWaterTiles()
 	{
 		return waterTiles;
+	}
+	
+	public int getScore() 
+	{
+		return score;
+	}
+	
+	public void addScore(int points)
+	{
+		score += points;
 	}
 }

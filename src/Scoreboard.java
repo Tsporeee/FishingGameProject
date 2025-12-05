@@ -48,6 +48,7 @@ import java.util.ArrayList;
             }
             writer.close();
         }
+        
         // Error in saving file
         catch (IOException e)
         {

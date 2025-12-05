@@ -21,11 +21,9 @@
 public class BullShark extends Fish
 {
 	
-	// A BullShark has-a point value
-	public int points = 10;
-	
 	public BullShark()
 	{
+		super(10);
 	}
 	
 	// Ability

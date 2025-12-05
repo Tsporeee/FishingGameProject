@@ -1,6 +1,5 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -57,6 +56,7 @@ public class FishingGameProjectView
 		JTextArea gameUpdates = new JTextArea(20, 75);
 		gameUpdates.setFocusable(false);
 		JButton fishingButton = new JButton(); // Should we make this another class? 
+		fishingButton.addActionListener(new FishButtonListener(gamePanel, boatInventory, gameUpdates));
 		fishingButton.setFocusable(false);
 		
 		// Add textarea and button to south GUI

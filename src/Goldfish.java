@@ -18,14 +18,14 @@
  */
 
 // A Goldfish is-a Carp
-public class Goldfish extends Carp
+public class Goldfish extends Fish
 {
 	// A Goldfish has-a point value
 	public int points = 4;
 	
 	public Goldfish()
 	{
-		
+		super(4);
 	}
    
 	@Override

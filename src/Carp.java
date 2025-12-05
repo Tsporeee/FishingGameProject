@@ -21,11 +21,9 @@
 public class Carp extends Fish
 {
 	
-	// A Carp has-a point value
-	public int points = 2;
-	
 	public Carp()
 	{
+		super(2);
 	}
 	
 	@Override
