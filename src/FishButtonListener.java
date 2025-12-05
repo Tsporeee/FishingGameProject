@@ -20,20 +20,20 @@ import javax.swing.JTextArea;
  * https://www.youtube.com/playlist?list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
  *  
  *  
- * Version/date: 11/20/2025
+ * Version/date: 12/5/2025
  * 
  * Responsibilities of class:
- * Creates the game visuals
+ * Adds functionality to the fish button
  * 
  */
 
 public class FishButtonListener implements ActionListener
 {
 	
-	// A FishingButtonListener has-a GoneFishingModel
+	// A FishButtonListener has-a FishingGamePanel
 	private FishingGamePanel gamePanel;
 		
-	// A FishingButtonListener has-a GoneFishingView
+	// A FishListener has-a JTextArea
 	private JTextArea boatInventory;
 	private JTextArea gameUpdates;
 		
