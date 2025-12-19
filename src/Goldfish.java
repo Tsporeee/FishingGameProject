@@ -20,17 +20,17 @@
 // A Goldfish is-a Carp
 public class Goldfish extends Fish
 {
-	// A Goldfish has-a point value
-	public int points = 4;
 	
 	public Goldfish()
 	{
+		// A goldfish is worth 4 points
 		super(4);
 	}
    
 	@Override
 	public String toString() 
     {
-       return "Goldfish";
+		// toString for inventory
+		return "Goldfish";
     }
 }

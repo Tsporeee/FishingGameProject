@@ -30,7 +30,7 @@ import javax.swing.JTextArea;
 public class FishingGameProjectView 
 {
 	
-	// Creates GUI (TO DO)
+	// Creates GUI 
 	public static void main(String[] args)
 	{
 		
@@ -60,7 +60,7 @@ public class FishingGameProjectView
 		fishingButton.addActionListener(new FishButtonListener(gamePanel, boatInventory, gameUpdates));
 		fishingButton.setFocusable(false);
 		
-		// Add textarea and button to south GUI
+		// Add text area and button to south GUI
 		southGUI.add(gameUpdates, BorderLayout.EAST);
 		southGUI.add(fishingButton, BorderLayout.CENTER);
 		

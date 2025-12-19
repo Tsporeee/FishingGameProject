@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  * https://www.youtube.com/playlist?list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
  * 
  *  
- * Version/date: 11/20/2025
+ * Version/date: 12/19/2025
  * 
  * Responsibilities of class:
  * Creates the game screen
@@ -52,8 +52,10 @@ public class FishingGamePanel extends JPanel
 	
 	// A FishingGamePanel has-a FishGenerator
 	private FishGenerator generator;
-	
+
+	// A FishingGamePanel has-a score and Scoreboard
 	private int score;
+	private Scoreboard scoreboard;
 	
 	// Set player default position
 	private int playerX = 0;
@@ -69,6 +71,7 @@ public class FishingGamePanel extends JPanel
 		
 		generator = new FishGenerator();
 		createWaterTiles();
+		scoreboard = new Scoreboard();
 	}
 	
 	// Create the three different WaterTiles
@@ -121,6 +124,13 @@ public class FishingGamePanel extends JPanel
 		// Draw the boat
 		g2D.setColor(Color.BLACK);
 		g2D.fillRect(getPlayerX(), getPlayerY(), SCALED_TILE_SIZE, SCALED_TILE_SIZE);
+	}
+	
+	// Add the final score to the scoreboard
+	public void saveScore()
+	{
+		scoreboard.addScore(String.valueOf(score));
+		scoreboard.saveScores();
 	}
 	
 	// Getters and setters

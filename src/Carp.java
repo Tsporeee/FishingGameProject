@@ -23,12 +23,14 @@ public class Carp extends Fish
 	
 	public Carp()
 	{
+		// A Carp is worth 2 points
 		super(2);
 	}
 	
 	@Override
 	public String toString() 
     {
-       return "Carp";
+		// toString for the inventory 
+		return "Carp";
     }
 }

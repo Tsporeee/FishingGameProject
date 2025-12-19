@@ -40,7 +40,6 @@ public class MovementListener implements KeyListener
 	public void keyTyped(KeyEvent e) 
 	{
 		// Not used 
-		
 	}
 
 	@Override

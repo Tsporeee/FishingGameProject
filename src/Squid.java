@@ -21,7 +21,7 @@
 public class Squid extends Fish
 {
 
-	// Ability
+	// Ability (UNUSED)
 	public void ink()
 	{
 		// Blacks out a tile

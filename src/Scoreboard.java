@@ -3,6 +3,7 @@ import java.util.ArrayList;
 /**
  * Lead Author(s): 
  * @author Robert Fuentes
+ * @author Tian Schmidt
  * 
  * Other contributors:
  * 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * Retrieved from https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  * 
  *  
- * Version/date: 10/31/2025
+ * Version/date: 12/18/2025
  * 
  * Responsibilities of class:
  * 
@@ -41,7 +42,7 @@ import java.util.ArrayList;
     {
         try
         {
-            FileWriter writer = new FileWriter("scoreboard.txt");
+            FileWriter writer = new FileWriter("scoreboard.txt", true);
             for (String score : scores)
             {
                 writer.write(score + "\n");
@@ -54,11 +55,5 @@ import java.util.ArrayList;
         {
             System.out.println("Something went wrong in saving score");
         }
-    }
-
-    // Load scores from file
-    public void loadScores()
-    {
- 
     }
 }
